@@ -32,7 +32,7 @@ For any questions about this repository, please contact:
 <br/>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/XanderHuggins/gwscape-risks/master/assets/readme-image.png" width="100%"/>
+  <img src="https://raw.githubusercontent.com/XanderHuggins/global-puzzles/refs/heads/main/assets/readme-image.png" width="100%"/>
 </p>
 
 <br/>
