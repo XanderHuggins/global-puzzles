@@ -1,5 +1,6 @@
 
 .gitattributes
+plots/gwscape-risk-maps/
 .Rproj.user/87231D27/pcs/debug-breakpoints.pper
 .Rproj.user/87231D27/pcs/files-pane.pper
 .Rproj.user/87231D27/pcs/packages-pane.pper
