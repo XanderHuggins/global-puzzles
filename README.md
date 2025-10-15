@@ -1,8 +1,8 @@
-\# \*\*Groundwaterscapes Sustainability Puzzle\*\* code repository
+\# Groundwaterscapes Sustainability Puzzle code repository
 
 
 
-\[!\[](<https://img.shields.io/badge/link to follow acceptance/SP3/MFYCWV-yellow>)]()
+\[!\[](<https://img.shields.io/badge/link-active-after--acceptance/SP3/MFYCWV-yellow>)]()
 
 
 
@@ -14,25 +14,25 @@ This repository includes all scripts necessary to preprocess input data, reprodu
 
 
 
-\*\*`\\Scripts` folder sub-structure\*\*: <br/>
+\*\*`Scripts` folder sub-structure\*\*: <br/>
 
 \- `on\_button.R`: Calls the `here()` function and sources scripts in the `\\00-setup` and `\\0-functions` folders.
 
-\- `\\0-functions`: Contains custom functions with explanatory names.
+\- `0-functions`: Contains custom functions with explanatory names.
 
-\- `\\00-steup`: Loads required packages, sets package options, and configures plotting themes.
+\- `00-steup`: Loads required packages, sets package options, and configures plotting themes.
 
-\- `\\1-preprocessing`: 
+\- `1-preprocessing`: 
 
 &nbsp; -  Contains preprocessing scripts to harmonize data to a 5-arcminute resolution. 
 
-\- `\\2-analysis\\1-SOM`:
+\- `2-analysis/1-SOM`:
 
 &nbsp; -  Contains all scripts related to self-organizing maps (SOM) derivation of global groundwater problemscapes.
 
-\- `\\2-analysis\\a2-SOM-clustering`:
+\- `2-analysis/a2-SOM-clustering`:
 
-\- `\\2-analysis\\`:
+\- `2-analysis`:
 
 &nbsp; -  Includes a script that calculates landscape metrics of groundwaterscapes within aquifers.
 
@@ -46,11 +46,17 @@ Additional scripts, such as for plotting, can be made available upon request.
 
 For any questions about this repository, please contact: <br/>
 
-Xander Huggins <br/>
+Xander Huggins : xander.huggins@ubc.ca <br/>
 
-xander.huggins@ubc.ca <br/>
+
+
+<p align="center">
+
+&nbsp; <img src="https://raw.githubusercontent.com/XanderHuggins/gwscape-risks/master/assets/readme-image.png"
+
+&nbsp; width="100%"/>
+
+</p>
 
 <br/>
-
-
 
