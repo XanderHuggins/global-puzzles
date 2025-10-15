@@ -16,9 +16,10 @@ write_rds(risk_stack,
 write_rds(risk_stack |> dplyr::select(!c(id, area)),
           file = here("data/som_files/input_data/02_full_input_data_norm.rds"))
 
+
 ## identify the size of kmeans cluster centers to retain 99% of data
 # n.sample = 1.1e4
-n.sample = 250
+n.sample = 100
 
 synthetic_anchors = kmeans(x = risk_stack[1:9], centers = n.sample, iter.max= 100)
 synthetic_anchors$betweenss/synthetic_anchors$totss # 84%
@@ -33,7 +34,8 @@ names(df_batch_all) = names(risk_stack)
 centers_all = matrix(nrow = 0, ncol = ncol(synthetic_anchors$centers)) |>  as.data.frame()
 names(centers_all) = names(synthetic_anchors$centers |> as_tibble())
 
-n.total = 2.7e4
+# n.total = 2.7e4
+n.total = 0.6e4
 
 for (i in 1:n.sample) {
   # i = 1
@@ -62,7 +64,7 @@ ss_calc = df_batch_all |>
 # increase the size of second batch until this is >99%
 round(1-sum(ss_calc$within_SS)/synthetic_anchors$totss, 2)
 
-# A sample of 7% of the dataset represents ~99% of the data variance
+# A sample of <2% of the dataset represents ~95% of the data variance
 n.total/nrow(risk_stack)
 
 mult = trunc(nrow(risk_stack)/n.sample)
@@ -70,7 +72,6 @@ mult = trunc(nrow(risk_stack)/n.sample)
 anchor_codes = centers_all
 write_rds(anchor_codes, 
           file = here("data/02_synthetic_data_input.rds"))
-
 
 df_batch_all
 write_rds(df_batch_all, 

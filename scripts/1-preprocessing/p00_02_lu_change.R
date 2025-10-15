@@ -36,3 +36,9 @@ lu_change_ratio_5arcmin = terra::resample(x = lu_change_ratio,
                                           method = "bilinear",
                                           filename = here("data/input_rast/lu_change_ratio.tif"),
                                           overwrite = T)
+
+lu_change = terra::rast(here("data/input_rast/lu_change_ratio.tif"))
+lu_change[lu_change>2] = 2
+
+writeRaster(lu_change, filename = here("data/input_rast/lu_change_ratio_v2.tif"), overwrite = T)
+

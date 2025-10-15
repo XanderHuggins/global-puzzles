@@ -31,3 +31,9 @@ risk_pal = mex.brewer(palette_name = "Atentado",
                       n = 8, 
                       type = "continuous",
                       direction  = 1)
+
+risk_pal = mex.brewer(palette_name = "Atentado",
+                      n = 18, 
+                      type = "continuous",
+                      direction = 1) #[c(3,1,10,9,7)]
+risk_pal = rev(risk_pal)

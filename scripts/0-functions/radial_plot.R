@@ -8,7 +8,8 @@ radial_plot = function(dataframe.in, cluster.no, clust_length, colour.in, labs =
   # cluster.no = i
   # clust_length = nclust
   # colour.in = risk_pal[i]
-  # labs = TRUE
+  # labs = F
+  # name.cust = "risk"
   # min.bot = 0.5
   # max.top = 3.5
   # base.rad.in = base_radial
@@ -17,7 +18,8 @@ radial_plot = function(dataframe.in, cluster.no, clust_length, colour.in, labs =
   radar_data = dataframe.in[i,] |> 
     as_tibble()
   
-  mean_values = base.rad.in[1,]
+  mean_values = base.rad.in
+  names(mean_values) = names(dataframe.in)[1:9]
   mean_values$ID = 0
   
   radar_data = rbind(mean_values, radar_data)
@@ -49,6 +51,7 @@ radial_plot = function(dataframe.in, cluster.no, clust_length, colour.in, labs =
                 gridline.max.linetype = "solid",
                 group.colours = c("grey10", colour.in),
                 group.line.width = c(rep(NA, ncol(dataframe.in)), rep(3, ncol(dataframe.in))),
+                # group.line.width = c(0,3), 
                 group.point.size = 0,
                 axis.label.size =  5, 
                 fill = T,
@@ -58,16 +61,16 @@ radial_plot = function(dataframe.in, cluster.no, clust_length, colour.in, labs =
                 grid.max = max.top)
   # plt
   plt = plt +
-    theme(plot.background = element_rect(fill = "#F2F2F2"),
-          panel.background = element_rect(fill = "#F2F2F2"))
-  # plt
+    theme(plot.background = element_rect(fill = "transparent"),
+          panel.background = element_rect(fill = "transparent")) # #F2F2F2
+  plt
   
   if (labs == TRUE) {
-    ggsave(plot = plt, paste0(here("plots/radial_L_"), name.cust, "_", cluster.no, ".png"),
+    ggsave(plot = plt, paste0(here("plots/transformed_radial_L_"), name.cust, "_", cluster.no, ".png"),
            dpi = 300, width = 5, height = 5, units = "in", bg = "transparent")  
   }
   if (labs == FALSE) {
-    ggsave(plot = plt, paste0(here("plots/radial_B_"), name.cust, "_", cluster.no, ".png"),
+    ggsave(plot = plt, paste0(here("plots/transformed_radial_B_"), name.cust, "_", cluster.no, ".png"),
            dpi = 300, width = 5, height = 5, units = "in", bg = "transparent")  
   }
   

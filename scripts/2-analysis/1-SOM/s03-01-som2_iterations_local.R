@@ -1,6 +1,8 @@
+library(here); source(here("on_button.R"))
+
 ## --------------------------- \
 # import best-performing first-stage SOM and extract codebook vectors
-prototypes = readr::read_rds(here("data/som_files/som_files_full/som1_nrc_64_iter_52.rds"))
+prototypes = readr::read_rds(here("data/som_files/som_selections/som1_nrc_30_iter_1.rds"))
 prototypes = prototypes$codes[[1]] |> as.data.frame()
 
 # set range of second-stage SOM following range suggested by Eisenack et al. 2021

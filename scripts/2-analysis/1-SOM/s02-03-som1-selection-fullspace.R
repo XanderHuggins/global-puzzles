@@ -1,6 +1,6 @@
 
 # Import performance metrics of each SOM1 architecture size
-df = readr::read_rds(here("data/som_files/som_performance_full/som_performance_combined_FULLspace_.rds"))
+df = readr::read_rds(here("data/som_files/som_performance_full/som_performance_combined_FULLspace.rds"))
 
 # We are interested in clusters that (1) preserve the topography of the data, and (2) have good cluster seperation
 
@@ -89,5 +89,5 @@ winning_size = df_keep_combined[rowno,]
 winning_size # this is best-performing SOM from first-stage
 
 ### We can observe that the best performing first-stage SOM is:
-som_size = 64
-som_iter = 52
+som_size = 30
+som_iter = 1

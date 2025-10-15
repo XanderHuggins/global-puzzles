@@ -1,3 +1,5 @@
+library(here); source(here("on_button.R"))
+
 ## --------------------------- \
 ## Assess performance of all SOM iterations and select best performing dimension
 
@@ -89,7 +91,7 @@ winning_size = df_keep_combined[rowno,]
 winning_size # this is best-performing SOM from first-stage
 
 ### We can observe that the best performing first-stage SOM is:
-som_size = 64
+som_size = 30
 
 iter_index = expand.grid(size_iter = c(1:60),
                          size = som_size)
@@ -112,8 +114,8 @@ ggplot() +
   # geom_line(aes(y = rank_s), col = "#EF440C", linewidth = 2) +
   geom_point(data = df_keep_combined,     aes(x= som_size, y = perf), col = "grey30", size = 3, alpha = 0.6) +
   geom_point(data = best_at_size, aes(x= som_size, y = perf), col = "black", size = 5) +
-  coord_cartesian(ylim=c(0, 1), xlim = c(9.5, 64.5), expand = 0, clip = "off") +
-  scale_x_continuous(breaks = seq(4, 64, by = 4)) +
+  coord_cartesian(ylim=c(0, 1), xlim = c(7.5, 30.5), expand = 0, clip = "off") +
+  scale_x_continuous(breaks = seq(8, 30, by = 2)) +
   scale_y_continuous(breaks = seq(0, 1, by = 0.1)) +
   my_theme + 
   theme(axis.line = element_line(size = 1), 

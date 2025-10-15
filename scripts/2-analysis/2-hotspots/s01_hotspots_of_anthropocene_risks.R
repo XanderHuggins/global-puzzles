@@ -14,7 +14,7 @@ risk_thresholds = risk_df |>
   summarise(
     gsh_t = wtd.quantile(x = gsh, weight = area, q = 1-thresh, na.rm = T),
     gws_t = wtd.quantile(x = gws, weight = area, q = 1-thresh, na.rm = T),
-    pcp_t = wtd.quantile(x = precip, weight = area, q = thresh, na.rm = T),
+    pcp_t = wtd.quantile(x = precip, weight = area, q = 1-thresh, na.rm = T),
     luc_t = wtd.quantile(x = luchange, weight = area, q = thresh, na.rm = T),
     ydg_t = wtd.quantile(x = yield_gap, weight = area, q = thresh, na.rm = T),
     cns_t = wtd.quantile(x = conspri, weight = area, q = 1-thresh, na.rm = T),
@@ -31,7 +31,7 @@ names(hotspots) = names(risk_stack)[1:9]
 hotspots$gsh[] = 0
 hotspots$gsh[risk_stack$gsh             >= 5] = 1
 hotspots$gws[risk_stack$gws             < risk_thresholds$gws_t] = 1
-hotspots$precip[risk_stack$precip       > risk_thresholds$pcp_t] = 1 
+hotspots$precip[risk_stack$precip       < risk_thresholds$pcp_t] = 1 
 hotspots$luchange[risk_stack$luchange   > risk_thresholds$luc_t] = 1
 hotspots$conspri[risk_stack$conspri     < risk_thresholds$cns_t] = 1
 hotspots$yield_gap[risk_stack$yield_gap > risk_thresholds$ydg_t] = 1
@@ -53,7 +53,7 @@ names(riskspots) = names(risk_stack)[1:9]
 
 riskspots$gsh[risk_stack$gsh             >= 3] = 1
 riskspots$gws[risk_stack$gws             < 0] = 1
-riskspots$precip[risk_stack$precip       > 1] = 1 
+riskspots$precip[risk_stack$precip       < 1] = 1 
 riskspots$luchange[risk_stack$luchange   > 1] = 1
 riskspots$conspri[risk_stack$conspri     < 80] = 1
 riskspots$yield_gap[risk_stack$yield_gap > 20] = 1

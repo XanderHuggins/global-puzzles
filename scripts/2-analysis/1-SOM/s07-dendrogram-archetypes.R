@@ -1,6 +1,6 @@
 
 
-archetypes = readr::read_rds(here("data/som_files/som_selections/som2_selection.rds"))
+archetypes = readr::read_rds(here("data/som_files/som_selections/som2_selection_complex.rds"))
 archetypes = archetypes$codes[[1]] |> as_tibble()
 
 agn = agnes(x=archetypes, diss = FALSE, stand = FALSE,
@@ -13,7 +13,7 @@ plot(agn_hclust)
 rect.hclust(agn_hclust, k = 5, border = 2:5)
 
 pdf_size = 3.5
-pdf(here("plots/dendrogram_archetypes.pdf"), width=2*pdf_size, height=pdf_size)
+pdf(here("plots/dendrogram_gwscape_risk_complex.pdf"), width=2*pdf_size, height=pdf_size)
 
 plot(agn_hclust, hang = -1, lwd = 2, bg=NA)
 rect.hclust(agn_hclust, k = 5, border = 2:5)
