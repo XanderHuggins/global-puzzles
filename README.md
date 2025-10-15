@@ -18,7 +18,6 @@ This repository includes all scripts necessary to preprocess input data, reprodu
   - Contains preprocessing scripts to harmonize data to a 5-arcminute resolution.
 - `2-analysis/1-SOM`:  
   - Contains all scripts related to self-organizing maps (SOM) derivation of global groundwater problemscapes.
-- `2-analysis/a2-SOM-clustering`:
 - `2-analysis`:  
   - Includes a script that calculates landscape metrics of groundwaterscapes within aquifers.
 
